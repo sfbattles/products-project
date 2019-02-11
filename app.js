@@ -6,8 +6,10 @@ const rootDir = require('./util/path')
 const bodyParser = require('body-parser')
 const app = express();
 
+app.set('view engine','pug');   //telling express use template engine pug
+app.set('views','views');  //by default it equal to rootDir/views so you do not have to set this is you put your view there.
 
-const adminRoutes = require('./routes/admin')
+const adminData = require('./routes/admin')
 const shopRoutes = require('./routes/shop')
 const pageNotFound = require('./routes/page-not-found')
 console.log(path.join(rootDir,'public'))
@@ -20,7 +22,7 @@ app.use(express.static(path.join(rootDir,'public')))
 //the below code will work as the same above 
 //app.use(express.static(path.join(__dirname,'public')))
 
-app.use('/admin',adminRoutes)
+app.use('/admin',adminData.routes)
 app.use(shopRoutes)
 app.use(pageNotFound)
 
