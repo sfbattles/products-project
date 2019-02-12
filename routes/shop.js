@@ -10,7 +10,7 @@ router.get('/',(req, resp, next) => {
     console.log('shop.js', adminData.products)
 
    const products = adminData.products;
-   resp.render('shop', {prods: products, docTitle: 'Shop'});  //no need for pug here its a default engine.
+   resp.render('shop', {prods: products, path: '/shop', pageTitle: 'Shop' });  //no need for pug here its a default engine.
  });
 
  module.exports = router;
