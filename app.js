@@ -5,14 +5,16 @@ const rootDir = require('./util/path')
 
 const bodyParser = require('body-parser')
 const app = express();
+//const expressHandleBars = require('express-handlebars');
+
+//app.engine('hbs',expressHandleBars());
 
 app.set('view engine','pug');   //telling express use template engine pug
 app.set('views','views');  //by default it equal to rootDir/views so you do not have to set this is you put your view there.
 
-const adminData = require('./routes/admin')
-const shopRoutes = require('./routes/shop')
-const pageNotFound = require('./routes/page-not-found')
-console.log(path.join(rootDir,'public'))
+const adminData = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
+const pageNotFound = require('./routes/page-not-found');
 app.use(bodyParser.urlencoded({ extended: true }));  //this does the buffer and added chuck together
 
 app.use(express.static(path.join(rootDir,'public')))
@@ -22,8 +24,8 @@ app.use(express.static(path.join(rootDir,'public')))
 //the below code will work as the same above 
 //app.use(express.static(path.join(__dirname,'public')))
 
-app.use('/admin',adminData.routes)
-app.use(shopRoutes)
-app.use(pageNotFound)
+app.use('/admin',adminData.routes);
+app.use(shopRoutes);
+app.use(pageNotFound);
 
-app.listen(3000)
+app.listen(3000);

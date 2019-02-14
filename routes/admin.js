@@ -1,4 +1,4 @@
-
+//@ts-check
 const path = require('path')
 const express = require('express')
 
@@ -10,8 +10,8 @@ const products = [];
 
 
 router.get('/add-product',(req, resp, next) => {
-  resp.sendFile(path.join(rootDir,'views','add-product.html'))  //make path based on OS not the URl PATH
-  resp.render('add-product', {pageTitle: 'Add Product', path: '/admin/add-products' })
+  resp.sendFile(path.join(rootDir,'views','add-product.html'));  //make path based on OS not the URl PATH
+  resp.render('add-product', { pageTitle: 'Add Product', path: '/admin/add-products' });
 });
 
 router.post('/add-product',(req, resp, next) => { 
