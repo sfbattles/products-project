@@ -5,14 +5,8 @@ const rootDir = require('./util/path')
 
 const bodyParser = require('body-parser')
 const app = express();
-const expressHandleBars = require('express-handlebars');
 
-app.engine('hbs', expressHandleBars({
-    extname: 'hbs',  //only applies to the layout
-    layoutsDir: 'views/layouts',
-    defaultLayout: 'main-layout'
-}));
-app.set('view engine', 'hbs'); //telling express use template engine pug
+app.set('view engine', 'ejs'); //telling express use template engine pug
 app.set('views', 'views'); //by default it equal to rootDir/views so you do not have to set this is you put your view there.
 
 const adminData = require('./routes/admin');
