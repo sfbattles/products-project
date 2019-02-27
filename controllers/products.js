@@ -18,13 +18,14 @@ exports.postAddProduct = (req, resp, next) => {
 };
 
 exports.getProducts = (req, resp, next) => {
-    const products = Product.fetchAll();
-    resp.render('shop', {
-        prods: products,
-        path: '/',
-        pageTitle: 'Shop for books',
-        hasProducts: products.length > 0,
-        activeShop: true,
-        productCSS: true
-    }); //no need for pug here its a default engine.
+    const products = Product.fetchAll((products) => {
+        resp.render('shop', {
+            prods: products,
+            path: '/',
+            pageTitle: 'Shop for books',
+            hasProducts: products.length > 0,
+            activeShop: true,
+            productCSS: true
+        }); //no need for pug here its a default engine.
+    });   
 };
