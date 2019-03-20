@@ -1,8 +1,9 @@
 //@ts-check
 const Product = require('../models/product');
 
+
 exports.getAddProduct = (req, resp, next) => {
-    resp.render('add-product', {
+    resp.render('admin/add-product', {
         pageTitle: 'Add Product',
         path: '/admin/add-product',
         formsCSS: true,
@@ -18,14 +19,11 @@ exports.postAddProduct = (req, resp, next) => {
 };
 
 exports.getProducts = (req, resp, next) => {
-    const products = Product.fetchAll((products) => {
-        resp.render('shop', {
+    Product.fetchAll(products => {
+        resp.render('admin/products', {
             prods: products,
-            path: '/',
-            pageTitle: 'Shop for books',
-            hasProducts: products.length > 0,
-            activeShop: true,
-            productCSS: true
+            path: '/admin/products',
+            pageTitle: 'Admin Products',
         }); //no need for pug here its a default engine.
-    });   
-};
+    });
+}
