@@ -27,4 +27,6 @@ app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 app.use(pageNotFound);
 
-app.listen(3000);
+app.listen(3000, () => {
+    console.log('listening one port 3000')
+});

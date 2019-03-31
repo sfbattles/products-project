@@ -1,7 +1,6 @@
 //@ts-check
 const Product = require('../models/product');
 
-
 exports.getAddProduct = (req, resp, next) => {
     resp.render('admin/add-product', {
         pageTitle: 'Add Product',
@@ -13,7 +12,10 @@ exports.getAddProduct = (req, resp, next) => {
 };
 
 exports.postAddProduct = (req, resp, next) => {
-    const product = new Product(req.body.title);
+    const { title, imageUrl, price, description } = req.body;
+
+    console.log(req.body)
+    const product = new Product(title,imageUrl,price,description);
     product.save();
     resp.redirect('/');
 };
