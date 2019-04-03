@@ -32,12 +32,19 @@ exports.getIndex = (req, resp, next) => {
     }); 
 }
 
-exports.getCart  = (req, resp, next) => {
+exports.getCart = (req, resp, next) => {
  resp.render('shop/cart', {
    path: '/cart', 
    pageTitle: 'Your Cart', 
  });
 };
+
+exports.postCart = (req, resp, next) => {
+    const productId = req.body.productId   //this links to the name field in the ejs file.
+    console.log(productId)
+    resp.redirect('/cart')
+}
+
 exports.getOrders  = (req, resp, next) => {
     resp.render('shop/orders', {
       path: '/orders', 

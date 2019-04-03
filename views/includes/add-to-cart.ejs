@@ -1,0 +1,7 @@
+<form action="/cart" method="post">
+    <button class="btn" type="submit">Add to Cart</button>
+    <input type="hidden" name="productId" value="<%=product.id %>">
+    <!-- value get add to request when post methid is done type hidden will not show up in html but will be part of the html-->
+    <!-- do not need to pass data on the url becuase it is a post method -->
+    <!-- if you are looping data you will alos need to add a second parameter with the data you want in the .ejs include file. -->
+ </form>
