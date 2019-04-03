@@ -1,4 +1,4 @@
-//@ts-check
+////@ts-check
 const Product = require('../models/product');
 
 exports.getProducts = (req, resp, next) => {
@@ -9,6 +9,17 @@ exports.getProducts = (req, resp, next) => {
             pageTitle: 'All Products',
         }); //no need for pug here its a default engine.
     });   
+};
+exports.getProduct = (req, resp, next) => {
+    const productId = req.params.productId
+    Product.findProductByID(productId, product => {
+        resp.render('shop/product-detail', {
+            product : product, //right mean projuct we found on left side mean product in the view for display
+            path: 'product',
+            pageTitle: product.title,
+        });
+    })
+    
 };
 
 exports.getIndex = (req, resp, next) => {
