@@ -1,5 +1,6 @@
 ////@ts-check
 const Product = require('../models/product');
+const Cart = require('../models/cart');
 
 exports.getProducts = (req, resp, next) => {
     Product.fetchAll(products => {
@@ -41,6 +42,9 @@ exports.getCart = (req, resp, next) => {
 
 exports.postCart = (req, resp, next) => {
     const productId = req.body.productId   //this links to the name field in the ejs file.
+    Product.findProductByID(productId, (product) => {  //product was return from the file
+        Cart.addProduct(productId,product.price)
+    })
     console.log(productId)
     resp.redirect('/cart')
 }

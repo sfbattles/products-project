@@ -19,14 +19,14 @@ const getProductsFromFile = (callBack) => {
 
 module.exports = class Product {
     constructor(thetitle,imageUrl,price,description) {
-       
+      this.id = Math.random().toString()  //not really random but good enought for this part later will change.
         this.title = thetitle;
         this.imageUrl = imageUrl;
         this.description = description;
         this.price = price;
     }
    save () {
-     this.id = Math.random().toString()  //not really random but good enought for this part later will change.
+     //this.id = Math.random().toString()  //not really random but good enought for this part later will change.
      getProductsFromFile(products => {
       products.push(this);
       fs.writeFile(p,JSON.stringify(products),(err)=> {
