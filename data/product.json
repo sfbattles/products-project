@@ -2,7 +2,7 @@
     "title": "send the product",
     "imageUrl": "https://visualhunt.com/photos/1/red-heart-in-open-book.jpg?s=l",
     "description": "now is the time for all good men",
-    "price": "26",
+    "price": 26.30,
     "id": "1"
 }, {
     "title": "book",
@@ -16,4 +16,16 @@
     "description": "asdasdasd",
     "price": "30.99",
     "id": "0.8943112491541676"
+}, {
+    "id": "0.8756224373606896",
+    "title": "",
+    "imageUrl": "",
+    "description": "",
+    "price": ""
+}, {
+    "id": "0.7208987305920906",
+    "title": "",
+    "imageUrl": "",
+    "description": "",
+    "price": ""
 }]
